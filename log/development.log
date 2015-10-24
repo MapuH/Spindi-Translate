@@ -800,3 +800,544 @@ Started GET "/assets/translate.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44d
 
 
 Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-10-23 23:26:08 +0300
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 13:27:24 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 817ms (Views: 802.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 13:27:25 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 401ms (Views: 400.0ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (13.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateWords (20151024103108)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (235.2ms)[0m  [1mCREATE TABLE "words" ("id" serial primary key, "spindi" character varying, "bg" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (27.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151024103108"]]
+  [1m[36m (44.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (4.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'words'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdminUsers (20151024104557)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (90.3ms)[0m  [1mCREATE TABLE "admin_users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35m (31.3ms)[0m  CREATE UNIQUE INDEX  "index_admin_users_on_email" ON "admin_users"  ("email")
+  [1m[36m (30.8ms)[0m  [1mCREATE UNIQUE INDEX  "index_admin_users_on_reset_password_token" ON "admin_users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20151024104557"]]
+  [1m[36m (28.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateActiveAdminComments (20151024104601)
+  [1m[35m (0.2ms)[0m  BEGIN
+DEPRECATION WARNING: `#timestamps` was called without specifying an option for `null`. In Rails 5, this behavior will change to `null: false`. You should manually specify `null: true` to prevent the behavior of your existing migrations from changing. (called from block in up at /media/marin/Data/Projects/Rails/SpindiTranslate/db/migrate/20151024104601_create_active_admin_comments.rb:9)
+  [1m[36m (90.9ms)[0m  [1mCREATE TABLE "active_admin_comments" ("id" serial primary key, "namespace" character varying, "body" text, "resource_id" character varying NOT NULL, "resource_type" character varying NOT NULL, "author_id" integer, "author_type" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (31.2ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_namespace" ON "active_admin_comments"  ("namespace")
+  [1m[36m (29.8ms)[0m  [1mCREATE  INDEX  "index_active_admin_comments_on_author_type_and_author_id" ON "active_admin_comments"  ("author_type", "author_id")[0m
+  [1m[35m (29.8ms)[0m  CREATE  INDEX  "index_active_admin_comments_on_resource_type_and_resource_id" ON "active_admin_comments"  ("resource_type", "resource_id")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20151024104601"]]
+  [1m[35m (9.7ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (9.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'active_admin_comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (4.3ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'admin_users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (3.1ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'words'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36mAdminUser Load (1.5ms)[0m  [1mSELECT "admin_users".* FROM "admin_users"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mAdminUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "admin_users" WHERE "admin_users"."email" = 'm.s.marinov@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (18.2ms)[0m  INSERT INTO "admin_users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["email", "m.s.marinov@gmail.com"], ["encrypted_password", "$2a$10$2qJsC4WFS/aAQu30FCaQvewQCB97CqT6C2bfeGPkYQLApT9fzAFom"], ["created_at", "2015-10-24 10:48:10.394503"], ["updated_at", "2015-10-24 10:48:10.394503"]]
+  [1m[36m (8.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 13:49:05 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+Completed 401 Unauthorized in 23ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/login" for 127.0.0.1 at 2015-10-24 13:49:05 +0300
+Processing by ActiveAdmin::Devise::SessionsController#new as HTML
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/devise/shared/_links.erb (2.2ms)
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/devise/sessions/new.html.erb within layouts/active_admin_logged_out (268.9ms)
+Completed 200 OK in 14390ms (Views: 14316.2ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/assets/active_admin.self-b35fd0872a06685c8e97a6c8d4d6e59d639aacb89b381110b32ced05c4026ce1.css?body=1" for 127.0.0.1 at 2015-10-24 13:49:20 +0300
+
+
+Started POST "/admin/login" for 127.0.0.1 at 2015-10-24 13:49:29 +0300
+Processing by ActiveAdmin::Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z3tL6sXqUQIS4YI5SxmXJvdV/pyVBAFBQ1Gq7crEzqaMDshm+IQk5VUptRr9ASnEweH3f+Z1CQiZ6unjXTANmQ==", "admin_user"=>{"email"=>"m.s.marinov@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Login"}
+  [1m[35mAdminUser Load (1.0ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."email" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["email", "m.s.marinov@gmail.com"]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "admin_users" SET "last_sign_in_at" = $1, "current_sign_in_at" = $2, "last_sign_in_ip" = $3, "current_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "admin_users"."id" = $7  [["last_sign_in_at", "2015-10-24 10:49:30.400461"], ["current_sign_in_at", "2015-10-24 10:49:30.400461"], ["last_sign_in_ip", "127.0.0.1/32"], ["current_sign_in_ip", "127.0.0.1/32"], ["sign_in_count", 1], ["updated_at", "2015-10-24 10:49:30.401992"], ["id", 1]]
+  [1m[36m (35.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 587ms (ActiveRecord: 37.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 13:49:30 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (750.0ms)
+Completed 200 OK in 797ms (Views: 773.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/admin_users" for 127.0.0.1 at 2015-10-24 13:49:34 +0300
+Processing by Admin::AdminUsersController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.7ms)[0m  SELECT COUNT(*) FROM "admin_users"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "admin_users" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users"  ORDER BY "admin_users"."id" desc LIMIT 30 OFFSET 0
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (968.1ms)
+Completed 200 OK in 995ms (Views: 981.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2015-10-24 13:51:49 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.7ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (584.1ms)
+Completed 200 OK in 637ms (Views: 591.8ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/admin/words" for 127.0.0.1 at 2015-10-24 13:51:51 +0300
+Processing by Admin::WordsController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (785.4ms)
+Completed 200 OK in 811ms (Views: 799.3ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/admin/words/new" for 127.0.0.1 at 2015-10-24 13:51:55 +0300
+Processing by Admin::WordsController#new as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/new.html.arb (764.2ms)
+Completed 200 OK in 815ms (Views: 802.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/admin/words" for 127.0.0.1 at 2015-10-24 13:52:17 +0300
+Processing by Admin::WordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1LmAjwO2gpAojnNlh/7nqQZGLxsZhVb1ybR1yaPuNCVFD8b47v0Ip8slcI4owdwYiLhEaGXKfhLOqLqwYFLK5g==", "word"=>{"spindi"=>"макло", "bg"=>"малко"}, "commit"=>"Create Word"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["spindi", "макло"], ["bg", "малко"], ["created_at", "2015-10-24 10:52:17.671468"], ["updated_at", "2015-10-24 10:52:17.671468"]]
+  [1m[35m (64.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin/words/1
+Completed 302 Found in 156ms (ActiveRecord: 66.0ms)
+
+
+Started GET "/admin/words/1" for 127.0.0.1 at 2015-10-24 13:52:17 +0300
+Processing by Admin::WordsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdminUser Load (0.6ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mWord Load (0.4ms)[0m  SELECT  "words".* FROM "words" WHERE "words"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3[0m  [["resource_type", "Word"], ["resource_id", "1"], ["namespace", "admin"]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3  [["resource_type", "Word"], ["resource_id", "1"], ["namespace", "admin"]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/show.html.arb (893.9ms)
+Completed 200 OK in 936ms (Views: 908.5ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin/words" for 127.0.0.1 at 2015-10-24 13:52:23 +0300
+Processing by Admin::WordsController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "words"
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mWord Load (0.5ms)[0m  SELECT  "words".* FROM "words"  ORDER BY "words"."id" desc LIMIT 30 OFFSET 0
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (861.4ms)
+Completed 200 OK in 883ms (Views: 873.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/words/new" for 127.0.0.1 at 2015-10-24 13:52:59 +0300
+Processing by Admin::WordsController#new as HTML
+  [1m[36mAdminUser Load (0.2ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/new.html.arb (800.9ms)
+Completed 200 OK in 821ms (Views: 818.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/admin/words" for 127.0.0.1 at 2015-10-24 13:53:15 +0300
+Processing by Admin::WordsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xlq/gWaURVadE2ol1Rfz1wVcg/rUiqHa3GeFbzz8iKVX7Pn2i9/PYX64ac56KMhmi6LoiajFiT3be0oW/0B2Zg==", "word"=>{"spindi"=>"фостата", "bg"=>"в устата"}, "commit"=>"Create Word"}
+  [1m[35mAdminUser Load (0.2ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["spindi", "фостата"], ["bg", "в устата"], ["created_at", "2015-10-24 10:53:15.136721"], ["updated_at", "2015-10-24 10:53:15.136721"]]
+  [1m[36m (54.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/words/2
+Completed 302 Found in 97ms (ActiveRecord: 55.1ms)
+
+
+Started GET "/admin/words/2" for 127.0.0.1 at 2015-10-24 13:53:15 +0300
+Processing by Admin::WordsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWord Load (0.5ms)[0m  [1mSELECT  "words".* FROM "words" WHERE "words"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3  [["resource_type", "Word"], ["resource_id", "2"], ["namespace", "admin"]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "active_admin_comments" WHERE "active_admin_comments"."resource_type" = $1 AND "active_admin_comments"."resource_id" = $2 AND "active_admin_comments"."namespace" = $3[0m  [["resource_type", "Word"], ["resource_id", "2"], ["namespace", "admin"]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/show.html.arb (771.7ms)
+Completed 200 OK in 789ms (Views: 782.9ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin/words" for 127.0.0.1 at 2015-10-24 13:53:27 +0300
+Processing by Admin::WordsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "words"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mWord Load (0.6ms)[0m  [1mSELECT  "words".* FROM "words"  ORDER BY "words"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (802.9ms)
+Completed 200 OK in 822ms (Views: 815.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2015-10-24 13:56:06 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.6ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (678.3ms)
+Completed 200 OK in 694ms (Views: 687.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 13:56:51 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.8ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (1086.6ms)
+Completed 200 OK in 1176ms (Views: 1113.4ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 13:56:52 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 6908ms (Views: 6906.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 13:57:07 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.5ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (627.9ms)
+Completed 200 OK in 640ms (Views: 634.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 13:57:12 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1041ms (Views: 1039.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 13:58:32 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1055ms (Views: 1053.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/active_admin.self-b35fd0872a06685c8e97a6c8d4d6e59d639aacb89b381110b32ced05c4026ce1.css?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/translate.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/application.self-907f2d87c7b0fb8808a14f0f5f1c2d3de4dbfcf3fdb04e1d9e281e2e0c40753d.css?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:33 +0300
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/core.self-93be4d22eda916787802a64d8f88b52db8a9027d4ccbbc0942625324a7d12d44.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/datepicker.self-6267be6d4d0f0e8665be3b4d6ac07f40ba23a32aff8eaa5d1bfc00f76a9eeae7.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/widget.self-c1602241ddc51216b58391768667068867b8e15b9efc722befcd25771eda6819.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/button.self-4d4f21ba77bbf8cc08ae65e2b6329a7a1b952b32c3ba7bffca8313e7e8c93d0c.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/mouse.self-c513294e8da73f31f84ba3ef11e2a1180a47faea0eb2fea4a53fc26153dd21fd.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/draggable.self-debcca3d0d5d9afe2fe91a6fd1aebdb41ca0a55f2f6017352e6c02b6d8a6e64c.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/position.self-e693ced4ecfa1a276f0b794f32c1d30d792764b08788bf68ecfa3b388c291333.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/resizable.self-60b870565f3cd62982c1907828119bb51f42ec8228d5e23868153edc3abc685c.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/dialog.self-5a6c7980dfa3f6b74445b0f4b20eed799ee65363163500ed7f032e603d6b022d.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/sortable.self-df2d80a36f9dfbe0facc596ccd92af83ca50d38e4cd6a84810aaf5d40b8cd181.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/jquery-ui/tabs.self-dc07b44bf1b926c8d28ccd2658e30933881e5329348caf70cf305c3943f6bbd7.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/jquery_ui.self-01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/base.self-ab2cb3098b53fe7d229937d768d701e8f4013f2a5aea7988d8f2149fa40426db.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/batch_actions.self-10ee4c07784b00259ca97a02c4e7fb53c1b27ebe5653a3b910426b4ea0941250.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/checkbox-toggler.self-ffdc88fc1b3b6bcfac3e314f191fc486175ab5a4b5daab87af6bd208cb483bd8.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/dropdown-menu.self-161387c54d1640bd9f174301b77d73ea88ce6d7daf0d7356bd50b4d0143d1b72.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/flash.self-8f05a5d9328ea28fca100b057787fbfb567986513c5f1735ea48fad8f9571c10.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/has_many.self-ece319debdc01ca5096ae8ac6c130ffc0decab382543b4b94e18591375d3d3bb.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/modal_dialog.self-0e86d9de4b99cb242de337a342f957f4872f686afc40f31f32d855672b1cd878.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/per_page.self-d7697643296439a8f6aadbf22a229d8ce9b4e8e530ca854164398141006bcfda.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/lib/table-checkbox-toggler.self-f5200d732ec9ffd4ee8fd1fe11524ad7b54a67f6c0ef447a29d119ece2dcecdb.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/ext/jquery-ui.self-f96f2ec2a32c4bc4da4292cc74bddeca0bb223d81a421c98c4d613632860945e.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/ext/jquery.self-da8dafbbe883092bcae73f35a8caf4ae6170fe7d8130ae7039a233f9b509c757.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:34 +0300
+
+
+Started GET "/assets/active_admin/application.self-50ffc9f86e474cd52ffb7ce3b3572255ad6646ea17097a056f330b540eae402c.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:35 +0300
+
+
+Started GET "/assets/active_admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:35 +0300
+
+
+Started GET "/assets/translate.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:35 +0300
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 127.0.0.1 at 2015-10-24 13:58:35 +0300
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 13:58:40 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.5ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (525.8ms)
+Completed 200 OK in 539ms (Views: 535.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 13:58:40 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.6ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (719.9ms)
+Completed 200 OK in 731ms (Views: 726.3ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin/words" for 127.0.0.1 at 2015-10-24 13:58:45 +0300
+Processing by Admin::WordsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "words"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mWord Load (0.5ms)[0m  [1mSELECT  "words".* FROM "words"  ORDER BY "words"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (786.4ms)
+Completed 200 OK in 817ms (Views: 800.7ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 15:19:04 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 1051ms (Views: 1050.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["spindi", "макло"], ["bg", "малко"], ["created_at", "2015-10-24 12:25:34.026029"], ["updated_at", "2015-10-24 12:25:34.026029"]]
+  [1m[35m (9.1ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["spindi", "ас"], ["bg", "аз"], ["created_at", "2015-10-24 12:25:34.065889"], ["updated_at", "2015-10-24 12:25:34.065889"]]
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["spindi", "фостата"], ["bg", "в устата"], ["created_at", "2015-10-24 12:25:34.076577"], ["updated_at", "2015-10-24 12:25:34.076577"]]
+  [1m[35m (7.5ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["spindi", "биах"], ["bg", "бях"], ["created_at", "2015-10-24 12:25:34.088215"], ["updated_at", "2015-10-24 12:25:34.088215"]]
+  [1m[36m (6.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["spindi", "ф"], ["bg", "в"], ["created_at", "2015-10-24 12:25:34.098447"], ["updated_at", "2015-10-24 12:25:34.098447"]]
+  [1m[35m (8.0ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "words" ("spindi", "bg", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["spindi", "луксозенец"], ["bg", "лозенец"], ["created_at", "2015-10-24 12:25:34.110207"], ["updated_at", "2015-10-24 12:25:34.110207"]]
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 15:25:45 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (639.1ms)
+Completed 200 OK in 651ms (Views: 647.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 15:25:46 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.3ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (727.5ms)
+Completed 200 OK in 737ms (Views: 733.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/words" for 127.0.0.1 at 2015-10-24 15:25:48 +0300
+Processing by Admin::WordsController#index as HTML
+  [1m[35mAdminUser Load (0.3ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "words"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mWord Load (0.6ms)[0m  [1mSELECT  "words".* FROM "words"  ORDER BY "words"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (777.8ms)
+Completed 200 OK in 798ms (Views: 791.9ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/admin/words/batch_action" for 127.0.0.1 at 2015-10-24 15:26:37 +0300
+Processing by Admin::WordsController#batch_action as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v26UuW4QgKy+YL16AuJ582JFYuJb+79jV0Vghuriip8u2NLOg1sKm13LvpGt3UJC7LsJkSe0l4RQWa//KV50XA==", "batch_action"=>"destroy", "batch_action_inputs"=>"{}", "collection_selection"=>["5", "3"]}
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mWord Load (0.7ms)[0m  [1mSELECT "words".* FROM "words" WHERE "words"."id" IN (5, 3)[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM "words" WHERE "words"."id" = $1[0m  [["id", 3]]
+  [1m[35m (8.2ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  DELETE FROM "words" WHERE "words"."id" = $1  [["id", 5]]
+  [1m[36m (73.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/admin/words
+Completed 302 Found in 161ms (ActiveRecord: 84.7ms)
+
+
+Started GET "/admin/words" for 127.0.0.1 at 2015-10-24 15:26:37 +0300
+Processing by Admin::WordsController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "words"[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "words" LIMIT 30 OFFSET 0) subquery_for_count
+  [1m[36mWord Load (0.6ms)[0m  [1mSELECT  "words".* FROM "words"  ORDER BY "words"."id" desc LIMIT 30 OFFSET 0[0m
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/resource/index.html.arb (822.8ms)
+Completed 200 OK in 843ms (Views: 836.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 15:34:36 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 1032ms (Views: 1030.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 15:35:42 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mAdminUser Load (0.4ms)[0m  SELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (608.2ms)
+Completed 200 OK in 625ms (Views: 621.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2015-10-24 15:35:42 +0300
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdminUser Load (0.4ms)[0m  [1mSELECT  "admin_users".* FROM "admin_users" WHERE "admin_users"."id" = $1  ORDER BY "admin_users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered /home/marin/.rvm/gems/ruby-2.1.2/gems/activeadmin-1.0.0.pre2/app/views/active_admin/page/index.html.arb (722.2ms)
+Completed 200 OK in 735ms (Views: 731.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-10-24 15:35:45 +0300
+Processing by TranslateController#main as HTML
+  Rendered translate/main.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 1034ms (Views: 1033.2ms | ActiveRecord: 0.0ms)
