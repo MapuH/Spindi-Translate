@@ -33,6 +33,9 @@ gem 'autoprefixer-rails'
 gem 'activeadmin', '~> 1.0.0.pre2'
 gem 'devise', '~> 3.5', '>= 3.5.2'
 
+# Use UnicodeUtils for work with Cyrillic strings
+gem 'unicode_utils'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
