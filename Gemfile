@@ -7,14 +7,18 @@ gem 'rails', '4.2.4'
 # Use postgresql
 gem 'pg'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# Use LESS for stylesheets
+gem 'less-rails', '~> 2.7.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
+
+# Use Bootstrap, Font Awesome for styling
+gem 'less-rails-bootstrap', '~> 3.0'
+gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -24,10 +28,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-
-# Use Bootstrap for styling
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
 
 # Use ActiveAdmin
 gem 'activeadmin', '~> 1.0.0.pre2'

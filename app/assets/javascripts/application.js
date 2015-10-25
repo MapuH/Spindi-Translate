@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require twitter/bootstrap
 //= require turbolinks
-//= require bootstrap-sprockets
-//= require_tree .
+//= require cbpAnimatedHeader
+//= require cbpAnimatedHeader.min
+//= require classie
+//= require freelancer

@@ -1,9 +1,10 @@
 class TranslateController < ApplicationController
 
-  def main
-    @text = params[:spinditext]
+  def spindi2bg
+    @input = params[:spinditext]
 
-    if @text
+    if @input
+      @text = @input.dup
       @words = @text.gsub(/[^а-яА-Я0-9\-]/," ").split(" ").uniq
       @replace = []
 
@@ -13,7 +14,11 @@ class TranslateController < ApplicationController
         end
       end
 
-
+      @replace.each do |word|
+        @record = Word.find_by(spindi: UnicodeUtils.downcase(word))
+        @bgword = @record.bg
+        @text.gsub!(word, @bgword)
+      end
 
     end
 

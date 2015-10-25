@@ -8,7 +8,7 @@
             <form role="form">
             	<div class="form-group">
             		<label for="text-area">Enter Spinderman text here:</label>
-    				<textarea class="form-control" rows="5" name="spinditext"><%= @text %></textarea>
+    				<textarea class="form-control" rows="5" name="spinditext"><%= @input %></textarea>
             	</div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
@@ -18,12 +18,7 @@
             <form role="form">
                 <div class="form-group">
                     <label for="text-area">Translated text appears here:</label>
-                    <textarea class="form-control" rows="5" name="bgtext">
-                    <% if @text %>
-                        <%= @words %>
-                        <%= @replace %>
-                    <% end %>
-                    </textarea>
+                    <textarea class="form-control" rows="5" name="bgtext"><%= @text if @input %></textarea>
                 </div>
             </form>
 
