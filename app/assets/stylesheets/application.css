@@ -11,8 +11,7 @@
  * file per style scope.
  *
  *= require_self
- *= require twitter/bootstrap
- *= require font-awesome
- *= require freelancer/freelancer
  *= require bootstrap.min
+ *= require freelancer/freelancer
+ *= require font-awesome
  */
