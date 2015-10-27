@@ -11,7 +11,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
 
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="<%= bg2spindi_path %>">Български - Спиндермаан</a></li>
+            <li><a href="<%= spindi2bg_path %>">Спиндермаан - Български</a></li>
             <li><a href="<%= addword_path %>">Добави дума</a></li>
           </ul>
 
@@ -23,9 +23,9 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Спиндермаан - Български</h2>
+                <h2>Български - Спиндермаан</h2>
                 <hr class="star-primary">
-                <p>Въведи фраза от Бат Спинди вляво и виж превода ѝ на български отдясно. Имай предвид, че Бат Спинди може да не е много грамотен, но винаги пише само на кирилица!</p>
+                <p>Въведи текст на български вляво и виж превода на Спиндермаан отдясно. Внимание, Бат Спинди ползва само кирилица!</p>
             </div>
         </div>
 
@@ -33,18 +33,18 @@
 
         <div class="row">
             <div class="col-lg-6">
-                <form role="form" id="spinditext">
+                <form role="form" id="bgtext">
                 	<div class="form-group">
-                		<label for="spinditext">Какво ти каза Спиндермаан?</label>
-        				<textarea class="form-control" rows="10" maxlength="300" name="spinditext"><%= @input %></textarea>
+                		<label for="bgtext">Какво искаш да кажеш на Спиндермаан?</label>
+        				<textarea class="form-control" rows="10" maxlength="300" name="bgtext"></textarea>
                 	</div>
                 </form>
             </div>
             <div class="col-lg-6">
                 <form role="form">
                     <div class="form-group">
-                        <label for="bgtext">Български превод:</label>
-                        <textarea class="form-control" rows="10" maxlength="300" name="bgtext" readonly><%= @text if @input %></textarea>
+                        <label for="spinditext">Спиндермаански превод:</label>
+                        <textarea class="form-control" rows="10" maxlength="300" name="spinditext" readonly></textarea>
                     </div>
                 </form>
             </div>
@@ -52,7 +52,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <button type="submit" form="spinditext" class="btn btn-lg btn-success center-block">Преведи</button>
+                <button type="submit" form="bgtext" class="btn btn-lg btn-success center-block">Преведи</button>
             </div>
         </div>
     </div>

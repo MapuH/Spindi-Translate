@@ -1,3 +1,36 @@
+     <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Покажи менюто</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top">Спиндермаан Преводач</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#translate">Преводач</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="<%= addword_path %>">Добави дума</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -25,56 +58,54 @@
             </div>
             <div class="row">
                 <div class="col-lg-6 text-center">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p><br>
+                    <p>Граматиката на Бат Спинди е много избомбена, понякога даже е трудно да разбереш какво казва. За твое щастие намерихме преводач, който владее свободно спиндермаански и ще ти помогне с думичките. Натисни бутона долу за превод!</p><br>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p><br>
+                    <p>Искаш да напишеш нещо на спиндермаански, но не знаеш думите? Бат Спинди никога не е държал на правописа, но все пак следва някои основни правила, с които трябва да се съобразяваш. Натисни бутона за превод към спиндермаански! </p><br>
                 </div>                
             </div>
             <div class="row m-t-md">
                 <div class="col-lg-6 text-center">
-                    <a href="#" class="btn btn-lg btn-success">
-                        <i class="fa fa-download"></i> Download Theme
+                    <a href="<%= spindi2bg_path %>" class="btn btn-lg btn-success">
+                        Спиндермаан <i class="fa fa-long-arrow-right"></i> Български
                     </a>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <a href="#" class="btn btn-lg btn-success">
-                        <i class="fa fa-download"></i> Download Theme
+                    <a href="<%= bg2spindi_path %>" class="btn btn-lg btn-success">
+                        Български <i class="fa fa-long-arrow-right"></i> Спиндермаан
                     </a>
                 </div>                
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="success" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>За сайта</h2>
-                    <hr class="star-light">
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="footer-above">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col col-md-4">
+                        <h3>Автор</h3>
+                        <p>Марин Маринов<br><a href="mailto:m.s.marinov@gmail.com">m.s.marinov@gmail.com</a><br><a href="http://mmarinov.eu" target="_blank">mmarinov.eu</a></p>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>Полезни връзки</h3>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="https://www.facebook.com/spinderbok" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://spindermaan.bg/" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-external-link"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/MapuH/Spindi-Translate" class="btn-social btn-outline" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col col-md-4">
+                        <h3>За сайта</h3>
+                        <p>Спиндермаан преводачът се задвижва от <a href="http://rubyonrails.org/" target="_blank">Rails 4</a> и ползва <a href="http://startbootstrap.com/template-overviews/freelancer/" target="_blank">Freelancer</a> тема. Хостинг благодарение на <a href="http://heroku.com" target="_blank">Heroku</a>.</p>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-6">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>                
-            </div>
-            <div class="row">
-                <div class="col-lg-6 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
-                </div>                
-            </div>
-
         </div>
-    </section>

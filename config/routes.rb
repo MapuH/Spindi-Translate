@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get 'spindi2bg' => 'translate#spindi2bg'
+  get 'spindi2bg' => 'translate#spindi2bg', as: :spindi2bg
+  get 'bg2spindi' => 'translate#bg2spindi', as: :bg2spindi
+
+  get 'addword' => 'words#new', as: :addword
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

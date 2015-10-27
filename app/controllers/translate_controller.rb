@@ -24,4 +24,7 @@ class TranslateController < ApplicationController
 
   end
 
+  def bg2spindi
+  end
+
 end
