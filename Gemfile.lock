@@ -131,6 +131,7 @@ GEM
     pg (0.18.3)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
+    puma (2.14.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -228,6 +229,7 @@ DEPENDENCIES
   less-rails (~> 2.7.0)
   less-rails-bootstrap (~> 3.0)
   pg
+  puma
   rails (= 4.2.4)
   rails_12factor
   sdoc (~> 0.4.0)
