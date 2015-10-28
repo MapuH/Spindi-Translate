@@ -6,25 +6,36 @@ class TranslateController < ApplicationController
     if @input
       @text = @input.dup
       @words = @text.gsub(/[^а-яА-Я0-9\-]/," ").split(" ").uniq
-      @replace = []
 
       @words.each do |word|
-        if Word.exists?(spindi: UnicodeUtils.downcase(word))
-          @replace << word
+        @record = Word.find_by(spindi: UnicodeUtils.downcase(word))
+        if @record
+          @bgword = @record.bg
+          @text.gsub!(word, @bgword)
         end
       end
 
-      @replace.each do |word|
-        @record = Word.find_by(spindi: UnicodeUtils.downcase(word))
-        @bgword = @record.bg
-        @text.gsub!(word, @bgword)
+    end
+    
+  end
+
+  def bg2spindi
+    @input = params[:bgtext]
+
+    if @input
+      @text = @input.dup
+      @words = @text.gsub(/[^а-яА-Я0-9\-]/," ").split(" ").uniq
+
+      @words.each do |word|
+        @record = Word.find_by(bg: UnicodeUtils.downcase(word))
+        if @record
+          @spindiword = @record.spindi
+          @text.gsub!(word, @spindiword)
+        end
       end
 
     end
 
-  end
-
-  def bg2spindi
   end
 
 end

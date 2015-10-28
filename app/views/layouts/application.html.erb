@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html lang="bg">
+
 <head>
-  <title>Спиндермаан преводач</title>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Montserrat:400,700', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <% if content_for?(:head) %>
+      <%= content_for(:head) %>
+    <% else %>
+      <meta name="description" content="Не разбираш какво казва Бат Спинди или искаш да говориш като него? Спиндермаан преводачът е за теб. Въведи Спиндерман фраза и виж българския превод или обратно. Бат Спинди преводач напраих макло ас.">
+      <meta name="author" content="Marin Marinov">
+      <title>Спиндермаан преводач</title>
+    <% end %>
+    
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Montserrat:400,700', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
+
 <body id="page-top" class="index">
 
 <%= yield %>
