@@ -11,7 +11,7 @@ class TranslateController < ApplicationController
         @record = Word.find_by(spindi: UnicodeUtils.downcase(word))
         if @record
           @record.name ? @bgword = UnicodeUtils.titlecase(@record.bg) : @bgword = @record.bg
-          @text.gsub!(word, @bgword)
+          @text.gsub!(/\b#{word}\b/, @bgword)
         end
       end
 
@@ -30,7 +30,7 @@ class TranslateController < ApplicationController
         @record = Word.find_by(bg: UnicodeUtils.downcase(word))
         if @record
           @record.name ? @spindiword = UnicodeUtils.titlecase(@record.spindi) : @spindiword = @record.spindi
-          @text.gsub!(word, @spindiword)
+          @text.gsub!(/\b#{word}\b/, @spindiword)
         end
       end
 
