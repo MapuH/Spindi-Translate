@@ -13,7 +13,7 @@ ActiveAdmin.register Word do
 #   permitted
 # end
 
-permit_params :spindi, :bg
+permit_params :spindi, :bg, :name
 
 
 end

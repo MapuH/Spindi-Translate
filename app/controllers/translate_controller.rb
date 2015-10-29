@@ -10,7 +10,7 @@ class TranslateController < ApplicationController
       @words.each do |word|
         @record = Word.find_by(spindi: UnicodeUtils.downcase(word))
         if @record
-          @bgword = @record.bg
+          @record.name ? @bgword = UnicodeUtils.titlecase(@record.bg) : @bgword = @record.bg
           @text.gsub!(word, @bgword)
         end
       end
@@ -29,7 +29,7 @@ class TranslateController < ApplicationController
       @words.each do |word|
         @record = Word.find_by(bg: UnicodeUtils.downcase(word))
         if @record
-          @spindiword = @record.spindi
+          @record.name ? @spindiword = UnicodeUtils.titlecase(@record.spindi) : @spindiword = @record.spindi
           @text.gsub!(word, @spindiword)
         end
       end
