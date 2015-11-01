@@ -30,7 +30,40 @@
             <div class="col-lg-12 text-center">
                 <h2>Добави дума</h2>
                 <hr class="star-primary">
-                <p>Тази фунционалност все още не е активна</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <% flash.each do |type, message| %>
+                <div class="alert alert-<%= type %> fade in">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <%= message %>
+                </div>
+                <% end %>
+
+                <% if @word.errors.any? %>
+                <div class="alert alert-warning fade in">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <ul>
+                    <% @word.errors.each do |field, msg| %>
+                        <li><%= field == :spindi ? "Спинди дума" : "БГ дума" %>: <%= msg %></li>
+                    <% end %>
+                </ul>
+                </div>
+                <% end %>
+
+                <%= form_for(@word, html: { role: "form" }) do |f| %>
+                    <div class="form-group">
+                    <%= f.label :spindiword, "Дума на спиндермаански" %>
+                    <%= f.text_field :spindi, class: "form-control", maxlength: "30", required: "true" %>
+                    </div>
+                    <div class="form-group">
+                    <%= f.label :bgword, "Превод на български" %>
+                    <%= f.text_field :bg, class: "form-control", maxlength: "30", required: "true" %>
+                    </div>
+                    <button type="submit" class="btn btn-success center-block">Добави</button>
+                <% end %>            
             </div>
         </div>
 
