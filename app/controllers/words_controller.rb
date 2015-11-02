@@ -7,10 +7,11 @@ class WordsController < ApplicationController
   def create
     @word = Word.new(word_params)
 
-    if @word.valid?
+    if @word.valid? && verify_recaptcha(model: @word, message: "reCAPTCHA Error!")
       @word.save
       redirect_to addword_path, flash: { success: "Думата \"#{@word.spindi}\" беше успешно добавена!" }
     else
+      flash.delete(:recaptcha_error)
       render 'new'
     end
   end

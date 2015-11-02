@@ -173,6 +173,7 @@ GEM
       polyamorous (~> 1.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    recaptcha (0.4.0)
     ref (2.0.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
@@ -232,6 +233,7 @@ DEPENDENCIES
   puma
   rails (= 4.2.4)
   rails_12factor
+  recaptcha
   sdoc (~> 0.4.0)
   spring
   therubyracer

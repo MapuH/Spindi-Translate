@@ -36,6 +36,9 @@ gem 'devise', '~> 3.5', '>= 3.5.2'
 # Use UnicodeUtils for work with Cyrillic strings
 gem 'unicode_utils'
 
+# Use simple recaptcha for additional security
+gem "recaptcha", :require => "recaptcha/rails"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
